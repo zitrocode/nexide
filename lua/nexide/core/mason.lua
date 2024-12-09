@@ -5,6 +5,7 @@ M.setup = function()
   if not is_installed then return end
 
   local mason_lsp = require('mason-lspconfig')
+  local tool_installer = require('mason-tool-installer')
 
   mason.setup()
   mason_lsp.setup({
@@ -17,6 +18,13 @@ M.setup = function()
       'lua_ls',
       'eslint',
       'emmet_ls'
+    }
+  })
+
+  tool_installer.setup({
+    ensure_installed = {
+      'prettier',
+      'stylua'
     }
   })
 end
