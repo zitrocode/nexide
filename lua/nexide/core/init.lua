@@ -1,8 +1,9 @@
 local M = {}
 
-M.load = function ()
+M.load = function()
   require('nexide.core.mason').setup()
   require('nexide.core.conform').setup()
+  require('nexide.core.lint').setup()
   require('nexide.core.cmp').setup()
   require('nexide.core.lspkind').setup()
   require('nexide.core.treesitter').setup()

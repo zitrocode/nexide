@@ -16,15 +16,15 @@ M.setup = function()
       'cssls',
       'pyright',
       'lua_ls',
-      'eslint',
       'emmet_ls'
     }
   })
 
   tool_installer.setup({
     ensure_installed = {
+      'eslint_d',
       'prettier',
-      'stylua'
+      'stylua',
     }
   })
 end

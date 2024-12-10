@@ -11,7 +11,9 @@ return {
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'WhoIsSethDaniel/mason-tool-installer.nvim',
+
   'stevearc/conform.nvim',
+  'mfussenegger/nvim-lint',
 
   'hrsh7th/nvim-cmp',
   'neovim/nvim-lspconfig',
@@ -41,7 +43,7 @@ return {
 
   {
     'iamcco/markdown-preview.nvim',
-    run = function ()
+    run = function()
       vim.fn['mkdp#util#install']()
     end
   }
