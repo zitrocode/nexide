@@ -1,13 +1,13 @@
 local M = {}
 
-M.pre_load = function ()
+M.pre_load = function()
   vim.g.gruvbox_material_better_performance = true
   vim.g.gruvbox_material_foreground = 'original'
   vim.g.gruvbox_material_transparent_background = true
   vim.g.gruvbox_material_ui_contrast = 'high'
 end
 
-M.post_load = function ()
+M.post_load = function()
   local is_installed, colorbuddy = pcall(require, 'colorbuddy')
   if not is_installed then return end
 

@@ -1,7 +1,6 @@
 local load_nexide_modules = {
   'config',
   'plugin-loader',
-  'core',
   'lsp',
   'autocmd',
   'commands',

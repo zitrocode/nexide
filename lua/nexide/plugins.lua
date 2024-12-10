@@ -1,50 +1,126 @@
+function Path_config(name)
+  local module = 'nexide.core.' .. name
+  return module
+end
+
 return {
-  'wbthomason/packer.nvim',
-  'nvim-lua/plenary.nvim',
-
-  'nvim-tree/nvim-web-devicons',
-
+  -- Themes
   'sainnhe/gruvbox-material',
-  'folke/tokyonight.nvim',
-
   'tjdevries/colorbuddy.nvim',
 
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'WhoIsSethDaniel/mason-tool-installer.nvim',
+  -- Language Server Protocol (LSP)
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require(Path_config('mason')).setup()
+      require(Path_config('conform')).setup()
+      require(Path_config('lint')).setup()
+    end,
+    requires = {
+      'neovim/nvim-lspconfig',
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'stevearc/conform.nvim',
+      'mfussenegger/nvim-lint',
+    },
+  },
 
-  'stevearc/conform.nvim',
-  'mfussenegger/nvim-lint',
-
-  'hrsh7th/nvim-cmp',
-  'neovim/nvim-lspconfig',
-  'hrsh7th/cmp-nvim-lsp',
-  'onsails/lspkind-nvim',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/nvim-cmp',
-
+  -- Autocomplete and Snippets
+  {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require(Path_config('cmp')).setup()
+      require(Path_config('lspkind')).setup()
+    end,
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'onsails/lspkind-nvim',
+      'saadparwaiz1/cmp_luasnip'
+    },
+  },
   'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
-  'neovim/nvim-lspconfig',
-  'hrsh7th/cmp-nvim-lsp',
 
-  'nvim-treesitter/nvim-treesitter',
+  -- syntax highlighter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require(Path_config('treesitter')).setup()
+    end
+  },
 
-  { 'nvim-telescope/telescope.nvim',            branch = '0.1.x' },
-  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  -- User interface
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require(Path_config('tree')).setup()
+    end,
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require(Path_config('lualine'))
+    end,
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    config = function()
+      require(Path_config('telescope')).setup()
+    end,
+    requires = {
+      'nvim-lua/plenary.nvim',
+      { 'nvim-tree/nvim-web-devicons' },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
+      },
+    },
+  },
 
-  'nvim-lualine/lualine.nvim',
-  'nvim-tree/nvim-tree.lua',
+  -- Workflow tools
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require(Path_config('colorizer')).setup()
+    end
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require(Path_config('gitsigns')).setup()
+    end
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require(Path_config('autotag')).setup()
+    end
+  },
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require(Path_config('autopairs')).setup()
+    end
+  },
+  {
+    'folke/todo-comments.nvim',
+    config = function()
+      require(Path_config('comments')).setup()
+    end
+  },
 
-  'tpope/vim-commentary',
-  'folke/todo-comments.nvim',
-  'norcalli/nvim-colorizer.lua',
   'mg979/vim-visual-multi',
-  'lewis6991/gitsigns.nvim',
-  'windwp/nvim-ts-autotag',
-  'windwp/nvim-autopairs',
+  'tpope/vim-commentary',
   'folke/zen-mode.nvim',
 
+  -- Utilities for Documentation
   {
     'iamcco/markdown-preview.nvim',
     run = function()

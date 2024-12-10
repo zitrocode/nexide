@@ -14,7 +14,7 @@ M.load = function()
 
   vim.scriptencoding = 'utf-8'
   vim.opt.path:append { '**' }
-  vim.opt.wildignore:append { '*/node_modules/*'}
+  vim.opt.wildignore:append { '*/node_modules/*' }
 
   if vim.fn.exists('syntax_on') == 0 then
     -- Enabled syntax
