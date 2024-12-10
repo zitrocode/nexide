@@ -3,7 +3,7 @@ local M = {}
 M.pre_load = function()
   vim.g.gruvbox_material_better_performance = true
   vim.g.gruvbox_material_foreground = 'original'
-  vim.g.gruvbox_material_transparent_background = true
+  vim.g.gruvbox_material_transparent_background = vim.g.nexide.theme.transparent
   vim.g.gruvbox_material_ui_contrast = 'high'
 end
 
