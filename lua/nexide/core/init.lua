@@ -14,6 +14,7 @@ M.load = function()
   require('nexide.core.colorizer').setup()
   require('nexide.core.lualine')
   require('nexide.core.tree').setup()
+  require('nexide.core.telescope').setup()
 end
 
 return M

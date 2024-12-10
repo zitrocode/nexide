@@ -1,5 +1,6 @@
 return {
   'wbthomason/packer.nvim',
+  'nvim-lua/plenary.nvim',
 
   'nvim-tree/nvim-web-devicons',
 
@@ -28,6 +29,9 @@ return {
   'hrsh7th/cmp-nvim-lsp',
 
   'nvim-treesitter/nvim-treesitter',
+
+  { 'nvim-telescope/telescope.nvim',            branch = '0.1.x' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 
   'nvim-lualine/lualine.nvim',
   'nvim-tree/nvim-tree.lua',
