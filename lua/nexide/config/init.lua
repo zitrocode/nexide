@@ -34,9 +34,11 @@ M.load = function()
   vim.opt.formatoptions:append { 'r' }
 
   -- Set theme automatically
-  theme.set_theme()
-  theme.update_theme()
-  theme.start_theme_check(5000) -- Every 5s
+  if theme.is_installed() then
+    theme.set_theme()
+    theme.update_theme()
+    theme.start_theme_check(5000) -- Every 5s
+  end
 end
 
 return M

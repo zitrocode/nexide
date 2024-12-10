@@ -15,7 +15,7 @@ M.setup = function ()
       'typescript',
       'markdown'
     },
-    auto_install = true,
+    auto_install = false,
     autopairs = {
       enable = true,
     },
